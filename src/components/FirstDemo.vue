@@ -9,7 +9,7 @@ defineProps({
 })
 </script>
 
-<style>
+<style scoped>
 button {
   padding: 20px;
 }
