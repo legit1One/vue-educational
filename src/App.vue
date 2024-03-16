@@ -1,13 +1,17 @@
 <template>
-  <p>Hello World</p>
+  <Quotations></Quotations>
+<!--  <Counter></Counter>-->
+<!--  <p>Hello World</p>-->
 
-  <FirstDemo text="Нажми меня"></FirstDemo>
-  <FirstDemo text="Press me"></FirstDemo>
-  <FirstDemo text="Submit"></FirstDemo>
+<!--  <FirstDemo text="Нажми меня"></FirstDemo>-->
+<!--  <FirstDemo text="Press me"></FirstDemo>-->
+<!--  <FirstDemo text="Submit"></FirstDemo>-->
 </template>
 
 <script setup>
 import FirstDemo from "@/components/FirstDemo.vue";
+import Counter from "@/components/Counter.vue";
+import Quotations from "@/components/icons/Quotations.vue";
 </script>
 
 <style>
