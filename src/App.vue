@@ -1,9 +1,5 @@
 <template>
-  <p>Hello World</p>
-
-  <FirstDemo text="Нажми меня"></FirstDemo>
-  <FirstDemo text="Press me"></FirstDemo>
-  <FirstDemo text="Submit"></FirstDemo>
+  <router-view/>
 </template>
 
 <script setup>
