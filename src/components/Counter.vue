@@ -1,20 +1,22 @@
 <template>
   <div>Ваше число: {{ number }}</div>
 <!--  <FirstDemo v-bind:text="number" v-on:click="increment"></FirstDemo>-->
-  <FirstDemo :text="number" @click="increment"></FirstDemo>
+  <FirstDemo :text="number.toString()" @click="increment"></FirstDemo>
 <!--  <img v-for="(link, index) in URL" :src="link" :key="link" alt="">-->
 
 <!--  <div v-for="(link, idx) in URL" :key="link">-->
 <!--    {{idx}} - {{ link }}-->
 <!--  </div>-->
 
-  <div v-for="(value, field) in student" :key="field">
-    {{ field }} - {{ value }}
-  </div>
+<!--  <div v-for="(value, field) in student" :key="field">-->
+<!--    {{ field }} - {{ value }}-->
+<!--  </div>-->
 </template>
 <script setup>
 import FirstDemo from "@/components/FirstDemo.vue";
 import { reactive, ref } from "vue";
+
+const emit = defineEmits(['click-button'])
 
 let number = ref(0)
 
@@ -33,6 +35,7 @@ const student = ref({
 const increment = () => {
   number.value++
   student.value.age++
+  emit('click-button', number.value)
 }
 
 // document.addEventListener('c')

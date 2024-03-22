@@ -2,17 +2,29 @@
 <!--  {{number}}-->
 <!--  {{doubledNumber}}-->
 <!--  <Quotations></Quotations>-->
-<!--  <Counter></Counter>-->
+  <Counter @click-button="test"></Counter>
 <!--  <p>Hello World</p>-->
 <!--  <Slider/>-->
 
-  <input type="text" @input="handleInput">
+<!--  <Goods/>-->
 
-  {{ greeting }}
+<!--  <input type="text" @input="handleInput">-->
+<!---->
+<!--  {{ greeting }}-->
 
 <!--  <FirstDemo text="Нажми меня"></FirstDemo>-->
 <!--  <FirstDemo text="Press me"></FirstDemo>-->
 <!--  <FirstDemo text="Submit"></FirstDemo>-->
+
+<!--  <p>-->
+<!--    Человек кликнул: {{ clickCount }} раз-->
+<!--  </p>-->
+
+  <br>
+  <br>
+  <Search :value="searchValue" @change="searchValue = $event"></Search>
+  <br>
+  {{searchValue}}
 </template>
 
 <script setup>
@@ -21,13 +33,22 @@ import Counter from "@/components/Counter.vue";
 import Quotations from "@/components/icons/Quotations.vue";
 import Slider from "@/components/Slider.vue";
 import { computed, ref } from "vue";
+// import Goods from "@/components/Goods.vue";
+import Search from "@/components/Search.vue";
 
 const inputValue = ref('')
+const clickCount = ref(0)
+const searchValue = ref('John')
+
 
 const handleInput = (e) => {
   console.log(e)
   inputValue.value = e.target.value
   // greetingText = `Hello, ${e.targer.value}`
+}
+
+const test = (e) => {
+  console.log(e)
 }
 
 const greeting = computed({
@@ -56,9 +77,3 @@ greeting.value = 'b;ab;ab;a'
 //   number.value++
 // }, 1000)
 </script>
-
-<style>
-p {
-  color: red;
-}
-</style>
