@@ -1,10 +1,9 @@
 <template>
-  <homework1/>
+  <homework2/>
 </template>
 
 <script setup>
-import FirstDemo from "@/components/FirstDemo.vue";
-import Homework1 from "@/views/homeworks/homework1.vue";
+import Homework2 from "@/views/homeworks/homework2.vue";
 </script>
 
 <style>
