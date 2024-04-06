@@ -1,17 +1,21 @@
 <template>
-  <div>
-<!--  <keep-alive>-->
-    <Counter v-if="showCounter" />
-<!--  </keep-alive>-->
+<!--    <DynamicBg ref="dynamicBg"/>-->
+<!--  <img src="./assets/logo.svg" width="16" alt="">-->
+<!--  <img src="@/assets/logo.svg" width="16" alt="">-->
 
-  <br><br>
-  <button @click="showCounter = !showCounter">Toggle Counter</button>
-  </div>
+<!--  <br>-->
+<!--  <div class="square" ref="squareEl"></div>-->
 </template>
 
 <script setup>
-import Counter from "@/components/Counter.vue";
-import { ref } from "vue";
+import {onMounted, ref} from "vue";
+import DynamicBg from "@/components/DynamicBg.vue";
+const squareEl = ref()
+const dynamicBg = ref()
 
-const showCounter = ref(true)
+onMounted(() => {
+  // console.log(document.querySelector('.square'))
+  console.log(squareEl.value)
+  console.log(dynamicBg.value)
+})
 </script>
