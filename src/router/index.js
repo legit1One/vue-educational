@@ -7,7 +7,10 @@ const router = createRouter({
     {
       path: '/',
       name: 'home',
-      component: HomeView
+      component: HomeView,
+      meta: {
+        title: 'Домашняя',
+      }
     },
     {
       path: '/about',
@@ -15,7 +18,10 @@ const router = createRouter({
       // route level code-splitting
       // this generates a separate chunk (About.[hash].js) for this route
       // which is lazy-loaded when the route is visited.
-      component: () => import('../views/AboutView.vue')
+      component: () => import('../views/AboutView.vue'),
+      meta: {
+        title: 'О нас'
+      }
     },
     {
       path: '/router',
@@ -23,9 +29,53 @@ const router = createRouter({
       // route level code-splitting
       // this generates a separate chunk (About.[hash].js) for this route
       // which is lazy-loaded when the route is visited.
-      component: () => import(`../views/RouterExample.vue`)
+      component: () => import(`../views/RouterExample.vue`),
+      meta: {
+        title: 'Роутер'
+      }
+    },
+    {
+      path: '/users',
+      meta: {
+        title: 'Users'
+      },
+      children: [
+        {
+          // users/:id
+          // id - dynamic
+          path: '',
+          name: 'Users',
+          component: () => import(`../views/Users.vue`),
+        },
+        {
+          // users/:id
+          // id - dynamic
+          path: ':id',
+          name: 'User',
+          component: () => import(`../views/User.vue`),
+        }
+      ]
     }
   ]
+})
+
+router.beforeEach((to, from, next) => {
+  document.title = to.meta.title
+
+  if(to.name === 'about' && localStorage.getItem('is_about_allowed') === '1') {
+    next()
+  } else if (to.name === 'about' && localStorage.getItem('is_about_allowed') !== '1'){
+    next('/')
+  }
+
+  // console.log('to', to)
+  // console.log('from', from)
+  next()
+})
+
+router.afterEach((to, from) => {
+  // console.log(from)
+  // alert(`Ты перешел на ${to.name} с ${from.path}`)
 })
 
 export default router
