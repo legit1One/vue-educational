@@ -1,7 +1,7 @@
 <template>
   <div class="user" v-for="(user, index) in users">
     <router-link :to="{name: 'User', params: { id: index }}">
-      {{user.name}}
+      {{ user.name }}
     </router-link>
   </div>
 </template>
