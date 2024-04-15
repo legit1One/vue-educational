@@ -6,6 +6,10 @@
   </div>
 </template>
 <script setup>
+import { useComponentBase } from "@/composables/useComponentBase.js";
+
+useComponentBase()
+
 const users = [
   {
     name: 'Brad Pitt'
