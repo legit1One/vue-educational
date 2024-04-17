@@ -10,8 +10,6 @@ export const useAuthStore = defineStore('auth', () => {
 
     const login = ref('dauren@codenext.kz')
 
-
-
     const changeLogin = () => {
         login.value = prompt('login')
     }
